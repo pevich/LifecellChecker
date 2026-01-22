@@ -21,13 +21,13 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pyqt5 selenium pyinstaller
+        pip install pyqt5 pyinstaller==5.13.0 selenium
 
     - name: Build EXE with PyInstaller
       run: |
         pyinstaller --onefile --noconsole --add-data "chromedriver.exe;." lifecell_checker.py
 
-    - name: Upload EXE as artifact
+    - name: Upload EXE artifact
       uses: actions/upload-artifact@v4
       with:
         name: LifecellChecker-EXE
